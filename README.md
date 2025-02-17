@@ -24,4 +24,3 @@ cd S6
 npm install
 npm run dev
 
-  ![image](https://github.com/user-attachments/assets/e508fbb1-2dfe-4b0f-af01-d708494167e8)
