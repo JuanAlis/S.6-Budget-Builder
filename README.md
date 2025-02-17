@@ -1,50 +1,27 @@
-# React + TypeScript + Vite
+# React Budgeter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**React Budgeter** es una aplicación web desarrollada con **React**, **Vite** y **TypeScript** que permite crear presupuestos de servicios y compartirlos fácilmente mediante una URL.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologías
 
-## Expanding the ESLint configuration
+- **React 18+** – Biblioteca para la interfaz de usuario.
+- **Vite** – Entorno de desarrollo rápido.
+- **TypeScript** – Tipado estático para mayor seguridad y mantenimiento.
+- **Styled Components** – CSS-in-JS para estilos dinámicos y modulares.
+- **React Router** – Gestión de rutas y navegación entre páginas.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## 🛠️ Instalación
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Clona el repositorio y ejecuta:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+```bash
+git clone https://github.com/JuanAlis/S.6-Budget-Builder.git
+cd S6
+npm install
+npm run dev
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+  ![image](https://github.com/user-attachments/assets/e508fbb1-2dfe-4b0f-af01-d708494167e8)
