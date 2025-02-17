@@ -1,0 +1,18 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+
+.card{
+  width: 100%;
+  height: auto;
+  background-color: red;
+  padding: 2em;
+  color: black;
+  border-radius: 30px;
+  box-shadow: black 5px ;
+}
+
