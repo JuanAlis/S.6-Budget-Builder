@@ -27,7 +27,7 @@ const ShareButton = styled.button`
 `;
 
 // Función para obtener budgets desde la URL
-const getBudgetsFromURL = (): any[] => {
+const getBudgetsFromURL = (): Budget[] => {
   const params = new URLSearchParams(window.location.search);
   const stored = params.get("budgets");
   if (stored) {
@@ -51,7 +51,16 @@ const CalculatorPage = () => {
   const [selectedServices, setSelectedServices] = useState<string[]>(
     searchParams.get("services")?.split(",") || []
   );
-  const [servicesDetails, setServicesDetails] = useState<{ name: string, pages?: number, languages?: number }[]>([]);
+
+interface ServiceDetail {
+  name: string;
+  pages?: number;
+  languages?: number;
+}
+
+
+
+  const [servicesDetails, setServicesDetails] = useState<ServiceDetail[]>([]);
   const [copySuccess, setCopySuccess] = useState(false);
 
   // Determinar si estamos en modo "shared"
