@@ -130,7 +130,6 @@ const BudgetList = ({ budgets, servicesDetails }: { budgets: any[]; servicesDeta
     setSortedBudgets([...budgets]);
   };
 
-  // Filtrar presupuestos por búsqueda
   const filteredBudgets = sortedBudgets.filter((budget) =>
     budget.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -169,9 +168,7 @@ const BudgetList = ({ budgets, servicesDetails }: { budgets: any[]; servicesDeta
               <ul>
                 {Array.isArray(budget.services) ? (
                   budget.services.map((service, idx) => {
-                    // ★ Modificación para el servicio Web:
                     if (service.includes("Web")) {
-                      // Buscamos los detalles actualizados en servicesDetails
                       const details = servicesDetails.find(s => s.name === "Web");
                       if (details) {
                         return (

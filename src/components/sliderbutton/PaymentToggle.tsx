@@ -4,7 +4,6 @@ interface SwitchProps {
   active: boolean; 
 }
 
-// Contenedor principal del switch
 const ToggleContainer = styled.div`
   display: flex;
   align-items: center;
@@ -13,7 +12,6 @@ const ToggleContainer = styled.div`
   font-weight: bold;
 `;
 
-// Contenedor del switch
 const Switch = styled.div<SwitchProps>`
   position: relative;
   width: 50px;
@@ -24,7 +22,6 @@ const Switch = styled.div<SwitchProps>`
   transition: background 0.3s;
 `;
 
-// Círculo deslizante dentro del switch
 const SwitchBall = styled.div<SwitchProps>`
   position: absolute;
   top: 2px;

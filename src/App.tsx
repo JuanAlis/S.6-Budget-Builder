@@ -8,7 +8,6 @@ import BudgetList from "./components/Budgets/BudgetList";
 import Welcome from "./components/pages/Welcome";
 import styled from "styled-components";
 
-// Estilos del botón de compartir (sin cambios)
 const ShareButton = styled.button`
   background: #007bff;
   color: white;
@@ -26,7 +25,6 @@ const ShareButton = styled.button`
   }
 `;
 
-// Función para obtener budgets desde la URL
 const getBudgetsFromURL = (): Budget[] => {
   const params = new URLSearchParams(window.location.search);
   const stored = params.get("budgets");
@@ -44,7 +42,6 @@ const getBudgetsFromURL = (): Budget[] => {
 const CalculatorPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  // Inicializamos budgets una sola vez al montar el componente
   const [budgets, setBudgets] = useState<any[]>(getBudgetsFromURL());
   const [total, setTotal] = useState(Number(searchParams.get("total")) || 0);
   const [isAnnual, setIsAnnual] = useState(searchParams.get("isAnnual") === "true");
@@ -63,10 +60,8 @@ interface ServiceDetail {
   const [servicesDetails, setServicesDetails] = useState<ServiceDetail[]>([]);
   const [copySuccess, setCopySuccess] = useState(false);
 
-  // Determinar si estamos en modo "shared"
   const isShared = searchParams.get("shared") === "true";
 
-  // ★ Efecto de rehidratación de budgets: se ejecuta solo una vez (array vacío de dependencias)
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const stored = params.get("budgets");
@@ -80,7 +75,6 @@ interface ServiceDetail {
     }
   }, []);
 
-  // Recalcular el total según los servicios seleccionados
   useEffect(() => {
     let calculatedTotal = 0;
     selectedServices.forEach(service => {
@@ -104,7 +98,6 @@ interface ServiceDetail {
     setTotal(calculatedTotal);
   }, [selectedServices, isAnnual]);
 
-  // Sincronizar la URL con el estado actual, sin incluir searchParams en las dependencias
   useEffect(() => {
     const params = new URLSearchParams();
     if (selectedServices.length > 0) params.set("services", selectedServices.join(","));
@@ -135,7 +128,6 @@ interface ServiceDetail {
     setBudgets([...budgets, newBudget]);
   };
 
-  // Función para copiar la URL compartida (forzando shared=true)
   const copyToClipboard = () => {
     const params = new URLSearchParams(window.location.search);
     params.set("shared", "true");
@@ -147,7 +139,6 @@ interface ServiceDetail {
     });
   };
 
-  // Si estamos en modo compartido, renderizamos solo los presupuestos
   if (isShared) {
     return (
       <Layout isAnnual={isAnnual} setIsAnnual={setIsAnnual}>
@@ -156,7 +147,6 @@ interface ServiceDetail {
     );
   }
 
-  // Renderización normal (calculadora completa)
   return (
     <Layout isAnnual={isAnnual} setIsAnnual={setIsAnnual}>
       <ServiceList 

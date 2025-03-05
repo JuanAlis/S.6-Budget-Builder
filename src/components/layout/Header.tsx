@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import imagenBanner from "../../assets/imagenBanner.jpg";
 
-// Contenedor principal del Header
 const HeaderContainer = styled.header`
   width: 100%;
   display: flex;
@@ -11,7 +10,6 @@ const HeaderContainer = styled.header`
 
 `;
 
-// Navbar con el logo y texto
 const NavBar = styled.nav`
     width: 100%;
     display: flex;
@@ -23,13 +21,11 @@ const NavBar = styled.nav`
     margin-left: 20px;
 `;
 
-// Logo del header
 const Logo = styled.img`
     height: 30px;
     margin-right: 10px;
 `;
 
-// Banner con el mensaje central
 const Banner = styled.div`
     margin-top:40px;
     width: 80%;

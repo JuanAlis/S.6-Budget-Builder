@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 
-// 🎨 ESTILOS DEL POPUP
 const ModalOverlay = styled.div`
   position: fixed;
   top: 0;
@@ -60,7 +59,6 @@ const InfoButton = styled.button`
   }
 `;
 
-// 🎨 ESTILOS ORIGINALES
 const Card = styled.div<{ selected: boolean }>`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -157,7 +155,6 @@ const Button = styled.button`
 
 
 
-// 🎨 (Tus estilos se mantienen sin cambios)
 
 interface ServiceCardProps {
   name: string;
@@ -184,11 +181,9 @@ const ServiceCard = ({
   const [numLanguages, setNumLanguages] = useState<number>(1);
   const [prevTotalPrice, setPrevTotalPrice] = useState<number>(0);
 
-  // Estados para popups (sin cambios)
   const [showPopup, setShowPopup] = useState<boolean>(false);
   const [popupType, setPopupType] = useState<PopupType>(null);
 
-  // Cálculos de precios
   const webBasePrice: number = 500;
   const extrasPrice: number = (numPages + numLanguages) * 30;
   const totalWebWithoutDiscount: number = webBasePrice + extrasPrice;
@@ -202,13 +197,10 @@ const ServiceCard = ({
     name === "Seo" ? basePriceSeo :
     name === "Ads" ? basePriceAds : 0;
 
-  // Precio que se muestra en la card
   const displayPrice: number = totalPrice;
 
-  // Determinar si el servicio está seleccionado
   const selected: boolean = selectedServices.some((s) => s.includes(name));
 
-  // Control del total: actualizar si el precio cambia
   useEffect(() => {
     if (selected && totalPrice !== prevTotalPrice) {
       onTotalChange(totalPrice - prevTotalPrice);
@@ -216,7 +208,6 @@ const ServiceCard = ({
     }
   }, [totalPrice, selected, onTotalChange, prevTotalPrice]);
 
-  // Manejar selección/deselección
   const handleToggle = () => {
     if (selected) {
       setSelectedServices((prev) => prev.filter((s) => !s.includes(name)));
@@ -233,7 +224,6 @@ const ServiceCard = ({
     }
   };
 
-  // ★ NUEVO: Actualizar el string del servicio Web cuando cambien los contadores
   useEffect(() => {
     if (name === "Web" && selected) {
       setSelectedServices((prev) =>
@@ -243,7 +233,6 @@ const ServiceCard = ({
     }
   }, [numPages, numLanguages, selected, name, setSelectedServices, updateServiceDetails]);
 
-  // Manejo del popup (sin cambios)
   const openPopup = (type: PopupType) => {
     setPopupType(type);
     setShowPopup(true);
